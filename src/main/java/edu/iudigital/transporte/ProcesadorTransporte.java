@@ -31,4 +31,14 @@ public class ProcesadorTransporte {
                 .filter(registro -> registro.accion() == accion.ENTRADA)
                 .collect(Collectors.groupingBy(registro::ruta, Collectors.counting()));
     }
+
+    // d)Patrones de viaje por usuario
+    // Generamos un listado de estaciones visitadas por cada usuario, conservando el orden de aparición.
+    public static Map<String, List<String>> patronesDeViajePorUsuario(List<registro> registros) {
+        return registros.stream()
+                .collect(Collectors.groupingBy(
+                        registro::idUsuario,
+                        Collectors.mapping(registro::estacion, Collectors.toList())
+                ));
+    }
 }
