@@ -23,4 +23,12 @@ public class ProcesadorTransporte {
                         Collectors.counting()
                 ));
     }
+
+    // c)Rutas más utilizadas
+    // Cuenta cuántos ingresos hay por cada ruta
+    public static Map<String, Long> rutasMasUtilizadas(List<registro> registros) {
+        return registros.stream()
+                .filter(registro -> registro.accion() == accion.ENTRADA)
+                .collect(Collectors.groupingBy(registro::ruta, Collectors.counting()));
+    }
 }
