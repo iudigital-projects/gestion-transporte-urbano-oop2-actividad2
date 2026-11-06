@@ -4,6 +4,13 @@
 
 Proyecto Maven para el procesamiento de datos de transporte urbano.
 
+## Autores
+
+- Camilo Marulanda
+- Gloris Mosquera
+- Andrés Murillo
+- Christian Velasco
+
 ## Requisitos
 
 - Java 21
@@ -26,10 +33,3 @@ src/main/java/edu/iudigital/transporte/
 └── Main.java
 ```
 
-## Autor
-
-- Nombre: _(pendiente)_
-
-## Licencia
-
-_(pendiente)_
