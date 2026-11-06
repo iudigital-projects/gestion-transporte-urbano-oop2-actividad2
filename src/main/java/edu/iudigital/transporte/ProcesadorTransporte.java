@@ -13,4 +13,14 @@ public class ProcesadorTransporte {
                 .filter(registro -> registro.accion() == accion.ENTRADA)
                 .collect(Collectors.groupingBy(registro::estacion, Collectors.counting()));
     }
+
+    // b) Identificación de horas pico
+    // Agrupa los registros por la hora del día para ver en qué momento hay más flujo
+    public static Map<Integer, Long> identificarHorasPico(List<registro> registros) {
+        return registros.stream()
+                .collect(Collectors.groupingBy(
+                        registro -> registro.timestamp().getHour(),
+                        Collectors.counting()
+                ));
+    }
 }
