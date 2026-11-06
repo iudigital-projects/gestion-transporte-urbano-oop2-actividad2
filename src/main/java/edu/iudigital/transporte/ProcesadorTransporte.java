@@ -64,4 +64,13 @@ public class ProcesadorTransporte {
                 .average()
                 .orElse(0.0);
     }
+
+    // f)Detección de sobrecarga en rutas
+    // Reutilizamos nuestra función pura "rutasMasUtilizadas" y filtramos por un umbral.
+    public static List<String> detectarSobrecargaEnRutas(List<registro> registros, long umbral) {
+        return rutasMasUtilizadas(registros).entrySet().stream()
+                .filter(entry -> entry.getValue() > umbral)
+                .map(Map.Entry::getKey)
+                .toList(); // Devuelve una lista inmutable.
+    }
 }
